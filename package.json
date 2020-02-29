@@ -1,0 +1,24 @@
+{
+  "name": "mathBender",
+  "version": "1.0.0",
+  "description": "A personal use Discord bot that queries Wolfram|Alpha.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoGiovani/mathBender.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeoGiovani/mathBender/issues"
+  },
+  "homepage": "https://github.com/GeoGiovani/mathBender#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
