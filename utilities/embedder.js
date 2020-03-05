@@ -20,15 +20,23 @@ function queryWolfram(URL) {
 
     // Send Wolfram|Alpha an HTTPS GET request
     return new Promise(resolve => {
-        console.log("Sending GET request to Wolfram|Alpha");
-        https.get(URL, (resp) => {
+        https.get(URL, async (resp) => {
 
             // Write image to file system
-            resp => resp.pipe(fs.createWriteStream('./test.gif'));
-            resolve( '/test.gif' );
+            await writeFile(resp);
+            resolve ('success');
 
         }).on("error", (err) => {
             resolve(err.message); // Send Error message back
+        });
+    });
+}
+
+function writeFile(image) {
+    return new Promise(resolve => {
+        let r = image.pipe(fs.createWriteStream('./test.gif'));
+        r.on('close', () => {
+            resolve()
         });
     });
 }
