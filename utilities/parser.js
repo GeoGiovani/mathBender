@@ -13,7 +13,7 @@ function parse (message) {
     query = querystring.stringify({'query': query});
     query = query.replace("query=", "");
 
-    return "http://api.wolframalpha.com/v1/simple?appid=***REMOVED***&i=" 
+    return "https://api.wolframalpha.com/v1/simple?appid=***REMOVED***&i=" 
             + query;
 }
 
