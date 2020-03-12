@@ -2,9 +2,10 @@ const Discord  = require('discord.js');
 const https = require('https');
 const fs = require('fs');
 
+
 async function generateEmbedding(URL) {
 
-    // Obtain result from Wolfram|Alpha
+    // Send query to Wolfram|Alpha 
     await queryWolfram(URL);
 
     // Generate a Discord Embedding
@@ -15,27 +16,29 @@ async function generateEmbedding(URL) {
 
     return embedding;
 }
-        
+  
+
+// Send Wolfram|Alpha an HTTPS GET request for a GIF image of the query result
 function queryWolfram(URL) {
 
-    // Send Wolfram|Alpha an HTTPS GET request
     return new Promise(resolve => {
-        https.get(URL, async (resp) => {
-
-            // Write image to file system
-            await writeFile(resp);
-            resolve ('success');
-
+        https.get(URL, async (response) => {
+            // Write the image to the file system
+            await writeFile(response);
+            resolve();
         }).on("error", (err) => {
-            resolve(err.message); // Send Error message back
+            resolve(err.message);
         });
     });
 }
 
+
+// Writes image to the file system as a .gif file 
 function writeFile(image) {
+
     return new Promise(resolve => {
-        let r = image.pipe(fs.createWriteStream('./test.gif'));
-        r.on('close', () => {
+        let write = image.pipe(fs.createWriteStream('./test.gif'));
+        write.on('close', () => {
             resolve()
         });
     });
