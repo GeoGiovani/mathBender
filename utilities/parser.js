@@ -7,6 +7,7 @@ function parse (message) {
     // MathBender was invoked ==> Parse
     var len     = message.length;
     var query   = message.slice(12, len);
+    var params  = "&fontsize=20"  + "&timeout=2";
     if (!query.replace(/\s/g, '').length) return null;  // Query has no content
 
     // URL-encode the query 
@@ -15,7 +16,7 @@ function parse (message) {
     query = query.replace("query=", "");
 
     return "https://api.wolframalpha.com/v1/simple?appid=***REMOVED***&i=" 
-            + query;
+            + query + params;
 }
 
 module.exports = parse; 
