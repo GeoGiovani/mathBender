@@ -13,7 +13,7 @@ client.on('ready', () => {
 client.login(process.env.DISCORD_TOKEN);
 
 
-// React to non-mathBender messages
+// Monitor channel messages, respond if mathBender is called by a user.
 client.on('message', async msg => {
 
     // Ignore messages from mathBender
@@ -23,8 +23,7 @@ client.on('message', async msg => {
     query = parser(msg.content);
     if (query) {
         msg.reply("hold on boss, let me look that up for you.")
-        link = encoder(query);
-        embedding = await embedder(link, query);
-        msg.reply(embedding);
+        embedding = await embedder(query);
+        await msg.reply(embedding);
     }
 });
