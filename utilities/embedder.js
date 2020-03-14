@@ -2,15 +2,17 @@ const Discord  = require('discord.js');
 const https = require('https');
 const fs = require('fs');
 
-
-async function generateEmbedding(URL) {
+// Queries Wolfram|Alpha for a result image using the URL provided by link and
+// generates a Discord embedding with the returned image.
+async function generateEmbedding(link, query) {
 
     // Send query to Wolfram|Alpha 
-    await queryWolfram(URL);
+    await queryWolfram(link);
 
-    // Generate a Discord Embedding
+    // Generate the Discord Embedding
     embedding = new Discord.RichEmbed()
-        .setTitle(' d[ o_0 ]b ')
+        .setTitle(query)
+        .setColor('#0099ff')
         .attachFile('test.gif')
         .setImage('attachment://test.gif');
 
@@ -45,5 +47,3 @@ function writeFile(image) {
 }
 
 module.exports = generateEmbedding;
-
-
