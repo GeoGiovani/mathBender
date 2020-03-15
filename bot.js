@@ -3,8 +3,8 @@ require('dotenv').config();
 const Discord  = require('discord.js');
 const client   = new Discord.Client();
 const parser   = require('./utilities/parser.js');
-const encoder  = require('./utilities/encoder.js');
 const embedder = require('./utilities/embedder.js');
+
 
 // Log in mathBender
 client.on('ready', () => {
