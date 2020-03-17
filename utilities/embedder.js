@@ -13,9 +13,9 @@ async function generateEmbedding(query) {
     // Verify that the encoded query will generate a response
     const valid = await validator(encodedQuery);
 
-    if(valid) {
-        const link  = simpleAPI(encodedQuery);
-        embedding = new Discord.RichEmbed()
+    if (valid) {
+        const link = simpleAPI(encodedQuery);
+        embedding  = new Discord.RichEmbed()
             .setColor('#00d871')
             .setTitle(query)
             .attachFiles([{name: "image.gif", attachment: link}])
@@ -24,7 +24,7 @@ async function generateEmbedding(query) {
     else {
         embedding = new Discord.RichEmbed()
             .setColor('#ff0000')
-            .setTitle("Error occurred, please double check expression.")
+            .setTitle("I encountered an error, please check your expression.")
     }     
     return embedding;
 }
