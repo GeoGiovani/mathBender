@@ -16,15 +16,15 @@ async function generateEmbedding(query) {
     if(valid) {
         const link  = simpleAPI(encodedQuery);
         embedding = new Discord.RichEmbed()
+            .setColor('#00d871')
             .setTitle(query)
-            .setColor('#0099ff')
             .attachFiles([{name: "image.gif", attachment: link}])
             .setImage('attachment://image.gif');
     }
     else {
         embedding = new Discord.RichEmbed()
+            .setColor('#ff0000')
             .setTitle("Error occurred, please double check expression.")
-            .setColor('#FF5733')
     }     
     return embedding;
 }
