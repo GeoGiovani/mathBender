@@ -1,11 +1,12 @@
+require('dotenv').config();
 const https = require('https');
 
 
 // Checks that an encodedQuery will generate a response from the server
 function validate(encodedQuery) {
-    
-    link = "https://www.wolframalpha.com/queryrecognizer/query.jsp?appid=DEMO&mode=Default&i=" 
-            + encodedQuery + "&output=json";
+
+    link = `https://www.wolframalpha.com/queryrecognizer/query.jsp?appid=
+            DEMO&mode=Default&i=${encodedQuery}&output=json`;
 
     return new Promise(resolve => {
         https.get(link, function(response) {
