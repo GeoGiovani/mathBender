@@ -11,7 +11,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 client.login(process.env.DISCORD_TOKEN);
-
+process.env.DISCORD_TOKEN = ""
 
 // Monitor channel messages, respond if mathBender is called by a user.
 client.on('message', async msg => {

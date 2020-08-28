@@ -1,5 +1,5 @@
 {
-  "name": "mathBender",
+  "name": "mathbender",
   "version": "1.0.0",
   "description": "A personal use Discord bot that queries Wolfram|Alpha.",
   "main": "index.js",

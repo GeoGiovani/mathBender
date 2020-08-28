@@ -1,5 +1,7 @@
 # mathBender
-A personal use Discord bot that queries Wolfram|Alpha.
+A bot that queries Wolfram|Alpha, built for my personal Discord server.
 
-- George Giovanis
-- 2020
+Note: this bot is intended for personal use only. Use without permission is
+denied. You may use parts of this bot's code freely.
+
+*Built and designed by George Giovanis*
